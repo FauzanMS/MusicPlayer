@@ -37,8 +37,22 @@ function MusicPlayer(props) {
   const [audio] = useState(new Audio(songs[songId].song));
   const [isPlaying, setIsPlaying] = useState(false);
   const ct = useRef();
+  const [stringTime , setStringTime] =useState('');
+  const [durTime, setDurTime] = useState(audio.duration);
+
   const setCurTime = () => {
     setCurrTime(audio.currentTime);
+    var s = parseInt(audio.currentTime % 60);
+    var m = parseInt((audio.currentTime / 60) % 60);
+    if(s<10)
+    setStringTime(m+":0"+s);
+    else
+    setStringTime(m+":"+s);
+
+    var s1 = parseInt(audio.duration % 60);
+    var m1 = parseInt((audio.duration / 60) % 60);
+    setDurTime(m1+":"+s1);
+
   };
 
   useEffect(() => {
@@ -52,11 +66,14 @@ function MusicPlayer(props) {
     // eslint-disable-next-line
   }, [songId]);
 
+  
   useEffect(() => {
     setSong_Id(sum);
     // eslint-disable-next-line
   }, [sum]);
 
+
+  //Time updates here 
   useEffect(() => {
     var timerID = setInterval(() => setCurTime(), 1000);
     return function cleanup() {
@@ -65,10 +82,6 @@ function MusicPlayer(props) {
     // eslint-disable-next-line
   }, [currTime]);
 
-  // function changeMusic(value) {
-  //   if (songId + value > -1) setSum(songId + value);
-  //   else return;
-  // }
 
   const musicProgress = () => {
     audio.currentTime = ct.current.value;
@@ -132,8 +145,8 @@ function MusicPlayer(props) {
         </div>
       </div>
       <div className="duration">
-        <p>{Math.round(currTime)}</p>
-        <p>{Math.round(audio.duration)}</p>
+        <p>{stringTime}</p>
+        <p>{durTime}</p>
       </div>
       <div className="TitleBar">
         <input
