@@ -1,0 +1,17 @@
+.Grid1{
+    margin: auto;
+    margin-top: 2%;
+    width: 95%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 2%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.Grid1Head{
+    font-weight: bolder;
+    font-size: medium;
+    text-align: center;
+}
