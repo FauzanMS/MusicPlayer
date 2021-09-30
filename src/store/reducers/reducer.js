@@ -1,11 +1,7 @@
 import * as actionTypes from "../actions/action";
 const initialState = {
   favSongs: [],
-  // ordered_items : {},
   song_id: 0,
-  // token : "",
-  // localId : "",
-  // singleBuy : null,
 };
 
 const reducer = (state = initialState, action) => {
