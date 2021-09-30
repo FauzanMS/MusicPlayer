@@ -7,7 +7,7 @@ import song1 from "../../musics/DaaruParty.mp3";
 import song2 from "../../musics/Starboy.mp3";
 import song3 from "../../musics/letmelove.mp3";
 import { connect } from "react-redux";
-
+import * as actionTypes from '../../store/actions/action';
 function MusicPlayer(props) {
   const songs = [
     {
@@ -31,6 +31,7 @@ function MusicPlayer(props) {
   ];
   let songId = props.song_id;
   let cTime = 0;
+  const [sum, setSum] = useState(0);
   const [song_Id, setSong_Id] = useState(0);
   const [currTime, setCurrTime] = useState(0);
   const [audio] = useState(new Audio(songs[songId].song));
@@ -40,7 +41,7 @@ function MusicPlayer(props) {
     setCurrTime(audio.currentTime);
   };
 
-   useEffect(() => {
+  useEffect(() => {
     musicCheck();
     // eslint-disable-next-line
   }, [isPlaying]);
@@ -52,12 +53,22 @@ function MusicPlayer(props) {
   }, [songId]);
 
   useEffect(() => {
+    setSong_Id(sum);
+    // eslint-disable-next-line
+  }, [sum]);
+
+  useEffect(() => {
     var timerID = setInterval(() => setCurTime(), 1000);
     return function cleanup() {
       clearInterval(timerID);
     };
     // eslint-disable-next-line
   }, [currTime]);
+
+  function changeMusic(value) {
+    if (songId + value > -1) setSum(songId + value);
+    else return;
+  }
 
   const musicProgress = () => {
     audio.currentTime = ct.current.value;
@@ -79,6 +90,7 @@ function MusicPlayer(props) {
       audio.play();
     }
   };
+
   function musicCheck() {
     if (!isPlaying) {
       pause();
@@ -87,14 +99,18 @@ function MusicPlayer(props) {
     }
   }
 
-    function musicChange() {
+  async function musicChange() {
     if (songId !== song_Id) {
-      toggleMusic();
+      await toggleMusic();
       setSong_Id(songId);
       audio.currentTime = 0;
+      if (isPlaying) {
+        await setIsPlaying(true);
+      } else {
+        await setIsPlaying(false);
+      }
     }
   }
-
   return (
     <>
       <div className="musicPlayerLayout">
@@ -132,7 +148,11 @@ function MusicPlayer(props) {
       </div>
       <div className="musicControls">
         <div className="back">
-          <SkipPreviousIcon className="controls" style={{ fontSize: 50 }} />
+          <SkipPreviousIcon
+            className="controls"
+            onClick={() => props.prevMusic(1)}
+            style={{ fontSize: 50 }}
+          />
         </div>
         <div className="play">
           {!isPlaying ? (
@@ -150,7 +170,11 @@ function MusicPlayer(props) {
           )}
         </div>
         <div className="next">
-          <SkipNextIcon className="controls" style={{ fontSize: 50 }} />
+          <SkipNextIcon
+            className="controls"
+            onClick={() => props.nextMusic(1)}
+            style={{ fontSize: 50 }}
+          />
         </div>
       </div>
     </>
@@ -161,10 +185,14 @@ const mapStoreToProps = (state) => {
   return {
     songs: state.songs,
     song_id: state.song_id,
-    // singleBuy : singleBuy,
-    // tokenId : token,
-    // localId : localId,
   };
 };
 
-export default connect(mapStoreToProps)(MusicPlayer);
+const mapDispatchToProps = (dispatch)=>{
+  return{
+    nextMusic :(value)=>dispatch({type:actionTypes.NEXT_SONG , id : value}),
+    prevMusic :(value)=>dispatch({type:actionTypes.PREV_SONG , id : value})
+  }
+}
+
+export default connect(mapStoreToProps,mapDispatchToProps)(MusicPlayer);
