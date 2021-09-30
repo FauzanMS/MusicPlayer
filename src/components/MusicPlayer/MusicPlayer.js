@@ -99,27 +99,17 @@ function MusicPlayer(props) {
     }
   }
 
-<<<<<<< HEAD
+
   async function musicChange() {
-=======
-    async function musicChange() {
->>>>>>> aa55aeeb898f2b50c7e2978b80eaa25658b0241d
     if (songId !== song_Id) {
       await toggleMusic();
       setSong_Id(songId);
       audio.currentTime = 0;
-<<<<<<< HEAD
       if (isPlaying) {
         await setIsPlaying(true);
       } else {
         await setIsPlaying(false);
-=======
-      if(isPlaying){
-        await setIsPlaying(true);
-      }else{
-        await setIsPlaying(false)
->>>>>>> aa55aeeb898f2b50c7e2978b80eaa25658b0241d
-      }
+    }
     }
   }
   return (
@@ -206,4 +196,4 @@ const mapDispatchToProps = (dispatch)=>{
   }
 }
 
-export default connect(mapStoreToProps,mapDispatchToProps)(MusicPlayer);
+export default connect(mapStoreToProps , mapDispatchToProps)(MusicPlayer);
