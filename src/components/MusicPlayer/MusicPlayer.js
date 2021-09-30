@@ -31,7 +31,7 @@ function MusicPlayer(props) {
   ];
   let songId = props.song_id;
   let cTime = 0;
-  const [sum, setSum] = useState(0);
+  const [sum] = useState(0);
   const [song_Id, setSong_Id] = useState(0);
   const [currTime, setCurrTime] = useState(0);
   const [audio] = useState(new Audio(songs[songId].song));
@@ -65,10 +65,10 @@ function MusicPlayer(props) {
     // eslint-disable-next-line
   }, [currTime]);
 
-  function changeMusic(value) {
-    if (songId + value > -1) setSum(songId + value);
-    else return;
-  }
+  // function changeMusic(value) {
+  //   if (songId + value > -1) setSum(songId + value);
+  //   else return;
+  // }
 
   const musicProgress = () => {
     audio.currentTime = ct.current.value;
