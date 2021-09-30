@@ -33,19 +33,22 @@ function MusicPlayer(props) {
   let cTime = 0;
   const [song_Id, setSong_Id] = useState(0);
   const [currTime, setCurrTime] = useState(0);
-  const [audio, setAudio] = useState(new Audio(songs[songId].song));
+  const [audio] = useState(new Audio(songs[songId].song));
   const [isPlaying, setIsPlaying] = useState(false);
   const ct = useRef();
   const setCurTime = () => {
     setCurrTime(audio.currentTime);
   };
-  useEffect(() => {
+
+   useEffect(() => {
     musicCheck();
+    // eslint-disable-next-line
   }, [isPlaying]);
 
   useEffect(() => {
     audio.currentTime = 0;
     musicChange();
+    // eslint-disable-next-line
   }, [songId]);
 
   useEffect(() => {
@@ -53,6 +56,7 @@ function MusicPlayer(props) {
     return function cleanup() {
       clearInterval(timerID);
     };
+    // eslint-disable-next-line
   }, [currTime]);
 
   const musicProgress = () => {

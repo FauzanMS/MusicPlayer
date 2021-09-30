@@ -122,6 +122,18 @@
       transform: rotate(360deg);
     }
   }
+@media (max-width:600px){
+  .mainContent{
+    display: none;
+  }
+  .musicPlayer{
+    width: 85%;
+  }
+  .HomeLayout{
+    width: 95%;
+    left: 2.5%;
+  }
+}
 
   @keyframes shake {
     10%, 90% {
