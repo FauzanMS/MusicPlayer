@@ -87,11 +87,14 @@ function MusicPlayer(props) {
     }
   }
 
-    function musicChange() {
+    async function musicChange() {
     if (songId !== song_Id) {
-      toggleMusic();
+      await toggleMusic();
       setSong_Id(songId);
       audio.currentTime = 0;
+      if(isPlaying){
+        await setIsPlaying(true);
+      }
     }
   }
 
