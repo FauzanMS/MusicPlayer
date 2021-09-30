@@ -94,6 +94,8 @@ function MusicPlayer(props) {
       audio.currentTime = 0;
       if(isPlaying){
         await setIsPlaying(true);
+      }else{
+        await setIsPlaying(false)
       }
     }
   }
