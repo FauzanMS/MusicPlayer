@@ -1,5 +1,24 @@
+.sideHelperLayout .active{
+    animation: App-logo-spin infinite 20s linear;
+}
+#lib{
+  display: none;
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 @media (max-width:600px){
     .sideHelper{
         width: 15%;
     }
+#lib{
+  display: block;
+}
   }
