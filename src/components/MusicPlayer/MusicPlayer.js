@@ -6,6 +6,8 @@ import PauseCircleFilledIcon from "@mui/icons-material/PauseCircleFilled";
 import song1 from "../../musics/DaaruParty.mp3";
 import song2 from "../../musics/Starboy.mp3";
 import song3 from "../../musics/letmelove.mp3";
+import song4 from "../../musics/zarasa.mp3";
+
 import { connect } from "react-redux";
 import * as actionTypes from '../../store/actions/action';
 function MusicPlayer(props) {
@@ -28,6 +30,12 @@ function MusicPlayer(props) {
       song: song3,
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6YSF2EOEwh4BnU9pwoInbA3nkCMF45Xr-ig&usqp=CAU",
     },
+    {
+      title: "Zara sa -Lofi",
+      singer: "LOFI REMIX",
+      song: song4,
+      img: "https://i1.sndcdn.com/artworks-000464421816-0aex4b-t500x500.jpg",
+    }
   ];
   let songId = props.song_id;
   let cTime = 0;
@@ -51,7 +59,11 @@ function MusicPlayer(props) {
 
     var s1 = parseInt(audio.duration % 60);
     var m1 = parseInt((audio.duration / 60) % 60);
+    if(s1<10)
+    setDurTime(m1+":0"+s1);
+    else
     setDurTime(m1+":"+s1);
+
 
   };
 
@@ -138,9 +150,6 @@ function MusicPlayer(props) {
         <div className="lyricsDiv">
           <p>
             {songs[songId].singer}
-            <br />
-            <strong>Ye kaha se laaya teekhi hai bhai badi </strong>Aaloo Bhujia!
-            Aye bhai thodi aur daal de Fridge vichon ice cube bhi nikal de (x2)
           </p>
         </div>
       </div>

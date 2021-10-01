@@ -1,10 +1,40 @@
 .sideHelperLayout .active{
     animation: App-logo-spin infinite 20s linear;
 }
-#lib{
+.fav{
+  padding: 15%;
+  color : #c9184a;
+  cursor: pointer;
+}
+.fav:hover{
+  color: #ff758f;
+}
+.library{
+  padding: 15%;
+  color : #c9184a;
+  cursor: pointer;
   display: none;
 }
-
+.library:hover{
+  color: #ff758f;
+}
+.queue{
+  padding: 15%;
+  color : #c9184a;
+  cursor: pointer;
+  display: none;
+}
+.queue:hover{
+  color: #ff758f;
+}
+.account{
+  padding: 15%;
+  color : #c9184a;
+  cursor: pointer;
+}
+.account:hover{
+  color: #ff758f;
+}
 @keyframes App-logo-spin {
     from {
       transform: rotate(0deg);
@@ -18,7 +48,13 @@
     .sideHelper{
         width: 15%;
     }
-#lib{
-  display: block;
-}
+    .fav{
+      display: none;
+    }
+    .library{
+      display: block;
+    }
+    .queue{
+      display: block;
+    }
   }

@@ -1,6 +1,5 @@
 import React from "react";
 import "./Navbar.css";
-import QueueMusicIcon from "@mui/icons-material/QueueMusic";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { NavLink } from "react-router-dom";
@@ -14,22 +13,22 @@ export default function Navbar() {
         <img src={logo} id="musicImageAnime"  className="logo" alt="thht" />
         </NavLink>
         <NavLink to='/favourites'>
-        <div title="favourites">
-          <FavoriteIcon className="heart" style={{ fontSize: "2rem" }} />
+        <div className="fav" title="favourites">
+          <FavoriteIcon  style={{ fontSize: "2rem" }} />
         </div>
         </NavLink>
         <NavLink to="/musicList" >
-        <div title="My Library">
-          <LibraryMusicIcon className="heart" id="lib" style={{ fontSize: "2rem" }} />
+        <div className="library" title="My Library">
+          <LibraryMusicIcon  style={{ fontSize: "2rem" }} />
         </div>
         </NavLink>
-        <NavLink to="/musicList" >
-        <div title="My Queue">
-          <QueueMusicIcon className="heart" id="lib" style={{ fontSize: "2rem" }} />
+        <NavLink to="/favourites2" >
+        <div className="queue" title="My Queue">
+          <FavoriteIcon style={{ fontSize: "2rem" }} />
         </div>
         </NavLink>
-        <div title="My Account">
-          <AccountCircleIcon className="heart" style={{ fontSize: "2rem" }} />
+        <div className="account" title="My Account">
+          <AccountCircleIcon  style={{ fontSize: "2rem" }} />
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ export default function HomeLayout() {
        <Route exact path="/musicList">
        <Grid1 />
        </Route>
-       <Route exact path="/favourites">
+       <Route exact path="/favourites2">
        <Favourties />
        </Route>
       </div>
