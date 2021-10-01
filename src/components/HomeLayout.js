@@ -17,14 +17,22 @@ export default function HomeLayout() {
           <Route exact path='/'>
         <Grid1 />
         </Route>
-        <Route path='/favourites'>
+        <Route exact path='/favourites'>
         <Favourties/>
         </Route>
         </Switch>
       </div>
+      <Switch>
       <div className="musicPlayer">
        <MusicPlayer />
+       <Route exact path="/musicList">
+       <Grid1 />
+       </Route>
+       <Route exact path="/favourites">
+       <Favourties />
+       </Route>
       </div>
+      </Switch>
     </div>
     </Router>
   );

@@ -18,12 +18,16 @@ export default function Navbar() {
           <FavoriteIcon className="heart" style={{ fontSize: "2rem" }} />
         </div>
         </Link>
+        <Link to="/musicList" >
         <div title="My Library">
           <LibraryMusicIcon className="heart" style={{ fontSize: "2rem" }} />
         </div>
+        </Link>
+        <Link to="/musicList" >
         <div title="My Queue">
           <QueueMusicIcon className="heart" style={{ fontSize: "2rem" }} />
         </div>
+        </Link>
         <div title="My Account">
           <AccountCircleIcon className="heart" style={{ fontSize: "2rem" }} />
         </div>

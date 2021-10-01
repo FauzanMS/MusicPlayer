@@ -9,9 +9,28 @@
     grid-gap: 2%;
     overflow-y: scroll;
     overflow-x: hidden;
+    transition: all 0.5s ease-in-out;
 }
 .Grid1Head{
     font-weight: bolder;
     font-size: medium;
     text-align: center;
 }
+@media (max-width:600px){
+    .Grid1Head{
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        margin-bottom: 2%;
+       }
+   .Grid1{
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 2%;
+   }
+  }
