@@ -1,7 +1,7 @@
 import React from "react";
 import "./Favourites.css";
 import Card from "../grids/card/Card";
-export default function Favourties() {
+export default function Favourties({ musicPlayerList, setCurrentSong, setIsPlaying }) {
   const favs = [
     {
       id: 1,
@@ -20,7 +20,7 @@ export default function Favourties() {
     },
   ];
   const grids = favs.map((hit) => {
-    return <Card key={hit.id} src={hit.img} id={hit.id} title={hit.title} />;
+    return <Card key={hit.id} src={hit.img} id={hit.id} title={hit.title} setCurrentSong={setCurrentSong} musicPlayerList={musicPlayerList} setIsPlaying={setIsPlaying} />;
   });
   return (
     <>

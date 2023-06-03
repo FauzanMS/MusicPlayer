@@ -3,37 +3,37 @@
 }
 .fav{
   padding: 15%;
-  color : #c9184a;
+  color : green;
   cursor: pointer;
 }
 .fav:hover{
-  color: #ff758f;
+  color: rgb(41, 186, 41);
 }
 .library{
   padding: 15%;
-  color : #c9184a;
+  color : green;
   cursor: pointer;
   display: none;
 }
 .library:hover{
-  color: #ff758f;
+  color: rgb(41, 186, 41);
 }
 .queue{
   padding: 15%;
-  color : #c9184a;
+  color : green;
   cursor: pointer;
   display: none;
 }
 .queue:hover{
-  color: #ff758f;
+  color: rgb(41, 186, 41);
 }
 .account{
   padding: 15%;
-  color : #c9184a;
+  color : green;
   cursor: pointer;
 }
 .account:hover{
-  color: #ff758f;
+  color: rgb(41, 186, 41);
 }
 @keyframes App-logo-spin {
     from {

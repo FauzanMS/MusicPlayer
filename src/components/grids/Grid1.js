@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./card/Card";
 import "./Grid1.css";
-export default function Grid1() {
+export default function Grid1({musicPlayerList, setCurrentSong, setIsPlaying}) {
   const hits = [
     {
       id: 0,
@@ -25,7 +25,7 @@ export default function Grid1() {
     },
   ];
   const grids = hits.map((hit) => {
-    return <Card key={hit.id} src={hit.img} id={hit.id} title={hit.title} />;
+    return <Card key={hit.id} src={hit.img} id={hit.id} title={hit.title} musicPlayerList={musicPlayerList} setCurrentSong={setCurrentSong} setIsPlaying={setIsPlaying}  />;
   });
   return (
     <>
